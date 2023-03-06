@@ -1,0 +1,47 @@
+.listWrapper {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.movieList li {
+
+    margin-top: 30px;
+}
+.movieList li > h3 {
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.movieBlock {
+    display: flex;
+    width: 350px;
+    padding: 0 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.movieBlock img {
+    max-width: 100%;
+    object-fit: cover;
+}
+.listWrapper a {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+}
+.movieList  {
+    margin: 0;
+    padding: 0 15px;
+}
+@media(max-width:767px){
+    .movieList li {
+        margin-top: 15px;
+    }
+    .movieList li > h3 {
+        margin: 10px 0;
+        font-size: 28px;
+        text-align: center;
+    }
+}

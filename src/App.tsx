@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import Listing from './components/Listing';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Details from './components/Details';
+import { ListingProps } from './type';
+import { useState } from 'react';
+
 
 function App() {
+  const [searchData, setSearchData] = useState<ListingProps[]>()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Header setSearchData={setSearchData} />
+        <Routes>
+          <Route path="/" element={<Listing setSearchData={setSearchData} searchData={searchData} />} />
+          <Route path="/:id" element={<Details />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
